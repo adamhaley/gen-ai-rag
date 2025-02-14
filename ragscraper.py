@@ -1,3 +1,3 @@
 import os
 
-import openai from OpenAI
+print("hello world, I'm here!")
