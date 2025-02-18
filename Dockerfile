@@ -13,7 +13,6 @@ RUN mkdir -p ~/.streamlit
 COPY config.toml ~/.streamlit/
 
 
-ENTRYPOINT ["streamlit", "run ragscraper.py"]
 
 
 
