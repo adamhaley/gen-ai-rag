@@ -4,6 +4,7 @@ from langchain.text_splitter import CharacterTextSplitter
 from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores import Chroma
 from dotenv import load_dotenv
+import streamlit as st
 
 load_dotenv()
 
@@ -24,10 +25,15 @@ pages = loader.load_and_split()
 text_splitter = CharacterTextSplitter(chunk_size=300, chunk_overlap=50)
 texts = text_splitter.split_documents(pages)
 
-embeddings = OpenAIEmbeddings()
 
-db = Chroma.from_documents(texts, embeddings)
+#db = Chroma.from_documents(texts, embeddings)
 
+# Question and Answer Area
+st.header("🗣️ RAG Question Answer")
+prompt = st.text_area("**Ask a question related to your document:**")
+ask = st.button(
+    "🔥 Ask",
+)
 
 print(len(texts))
 

@@ -7,3 +7,4 @@ langchain_text_splitters
 langchain_openai
 pypdf
 python-dotenv
+streamlit

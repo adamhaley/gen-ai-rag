@@ -1,9 +1,21 @@
-FROM python:3.9
-
-WORKDIR /app
+FROM python:3.12-slim
 
 COPY . /app
 
+WORKDIR /app
+
 RUN pip install --no-cache-dir -r requirements.txt
 
-CMD ["python", "ragscraper.py"]
+EXPOSE 8501
+
+RUN mkdir -p ~/.streamlit
+
+COPY config.toml ~/.streamlit/
+
+
+ENTRYPOINT ["streamlit", "run ragscraper.py"]
+
+
+
+
+
