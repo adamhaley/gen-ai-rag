@@ -30,7 +30,7 @@ texts = text_splitter.split_documents(pages)
 
 # Question and Answer Area
 st.header("🗣️ RAG Question Answer")
-prompt = st.text_area("**Ask a question related to your document:**")
+prompt = st.text_area("**Ask a question related to" + DATA_PATH + ":**")
 ask = st.button(
     "🔥 Ask",
 )
