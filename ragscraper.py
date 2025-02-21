@@ -1,11 +1,10 @@
 import os
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_openai import OpenAIEmbeddings
-from langchain_community.document_loaders import PyMuPDFLoader
 from langchain_core.documents import Document
 from langchain_community.vectorstores import Chroma
 from dotenv import load_dotenv
 import streamlit as st
+import pypdf
 
 load_dotenv()
 
@@ -26,11 +25,11 @@ ask = st.button(
 )
 
 
-#for page in pages: # iterate the document pages
-#    print(page)
-#    text = page.get_text().encode("utf8") # get plain text (is in UTF-8)
-#    print(text) # write text of page
-#    print(bytes((12,))) # write page delimiter (form feed 0x0C)
+for page in pages: # iterate the document pages
+    print(page)
+    text = page.get_text().encode("utf8") # get plain text (is in UTF-8)
+    print(text) # write text of page
+    print(bytes((12,))) # write page delimiter (form feed 0x0C)
 
 
 #text split the doc, chunk and embed
