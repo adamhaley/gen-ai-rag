@@ -1,5 +1,6 @@
 import os
 from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_community.document_loaders import PyPDFLoader
 from langchain_core.documents import Document
 from langchain_community.vectorstores import Chroma
 from dotenv import load_dotenv
@@ -12,7 +13,7 @@ CHROMA_PATH = "chroma"
 DATA_PATH = "./data/e-mu_eos_4.0_manual.pdf"
 
 
-loader = PyMuPDFLoader(DATA_PATH)
+loader = PyPDFLoader(DATA_PATH)
 docs = loader.load()
 
 #db = Chroma.from_documents(texts, embeddings)
@@ -25,11 +26,11 @@ ask = st.button(
 )
 
 
-for page in pages: # iterate the document pages
-    print(page)
-    text = page.get_text().encode("utf8") # get plain text (is in UTF-8)
-    print(text) # write text of page
-    print(bytes((12,))) # write page delimiter (form feed 0x0C)
+#for page in pages: # iterate the document pages
+#    print(page)
+#    text = page.get_text().encode("utf8") # get plain text (is in UTF-8)
+#    print(text) # write text of page
+#    print(bytes((12,))) # write page delimiter (form feed 0x0C)
 
 
 #text split the doc, chunk and embed
