@@ -44,4 +44,13 @@ split_doc = text_splitter.split_documents(docs)
 
 st.write(split_doc)
 
+vectorstore = Chroma.from_documents(
+    documents=doc_splits,
+    collection_name="rag-chroma",
+    embedding=embeddings.ollama.OllamaEmbeddings(model='nomic-embed-text'),
+)
+
+retriever = vectorstore.as_retriever()
+
+
 
