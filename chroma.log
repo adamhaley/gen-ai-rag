@@ -84,3 +84,25 @@
 [32mINFO[0m:     [07-03-2025 16:08:00] 127.0.0.1:48040 - "GET / HTTP/1.1" 404
 [32mINFO[0m:     [07-03-2025 16:08:34] 127.0.0.1:33646 - "GET / HTTP/1.1" 404
 [32mINFO[0m:     [07-03-2025 16:34:39] 127.0.0.1:44478 - "GET / HTTP/1.1" 404
+[32mINFO[0m:     [26-04-2025 11:44:46] Set chroma_server_nofile to 65535
+[32mINFO[0m:     [26-04-2025 11:44:46] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[36mDEBUG[0m:    [26-04-2025 11:44:46] Starting component System
+[36mDEBUG[0m:    [26-04-2025 11:44:46] Starting component OpenTelemetryClient
+[36mDEBUG[0m:    [26-04-2025 11:44:46] Starting component SqliteDB
+[36mDEBUG[0m:    [26-04-2025 11:44:46] Starting component SimpleQuotaEnforcer
+[36mDEBUG[0m:    [26-04-2025 11:44:46] Starting component Posthog
+[36mDEBUG[0m:    [26-04-2025 11:44:46] Starting component SimpleRateLimitEnforcer
+[36mDEBUG[0m:    [26-04-2025 11:44:46] Starting component LocalSegmentManager
+[36mDEBUG[0m:    [26-04-2025 11:44:46] Starting component LocalExecutor
+[36mDEBUG[0m:    [26-04-2025 11:44:46] Starting component SegmentAPI
+[36mDEBUG[0m:    [26-04-2025 11:44:46] Starting component SimpleAsyncRateLimitEnforcer
+[32mINFO[0m:     [26-04-2025 11:44:46] Started server process [[36m647563[0m]
+[32mINFO[0m:     [26-04-2025 11:44:46] Waiting for application startup.
+[32mINFO[0m:     [26-04-2025 11:44:46] Application startup complete.
+[32mINFO[0m:     [26-04-2025 11:44:46] Uvicorn running on [1mhttp://localhost:8000[0m (Press CTRL+C to quit)
+[32mINFO[0m:     [26-04-2025 11:45:04] 127.0.0.1:36498 - "GET / HTTP/1.1" 404
+[32mINFO[0m:     [26-04-2025 11:45:05] 127.0.0.1:36498 - "GET /favicon.ico HTTP/1.1" 404
+[32mINFO[0m:     [26-04-2025 11:45:14] 127.0.0.1:36498 - "GET / HTTP/1.1" 404
+[32mINFO[0m:     [26-04-2025 11:45:36] 127.0.0.1:36498 - "GET / HTTP/1.1" 404
+[32mINFO[0m:     [26-04-2025 11:49:17] 127.0.0.1:53176 - "GET / HTTP/1.1" 404
+[32mINFO[0m:     [26-04-2025 11:49:18] 127.0.0.1:53176 - "GET /favicon.ico HTTP/1.1" 404

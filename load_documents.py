@@ -22,7 +22,6 @@ print(len(pages))
 
 page = pages[0]
 
-
 #PRINT OUT SOME DATA PROVING LOADING WORKED
 print(page.page_content[:1500])
 print(page.metadata)
@@ -46,5 +45,22 @@ pages = r_splitter.split_documents(pages)
 
 print(len(pages))
 
+#CHROMA DB STUFF
+from langchain_community.vectorstores import Chroma
+from langchain_community.embeddings import OllamaEmbeddings
 
+from langchain_openai import OpenAIEmbeddings
+
+embedding = OllamaEmbeddings(model="mistral")
+
+persist_directory = 'my_chroma_data'
+
+vectordb = Chroma.from_documents(
+    documents=pages,
+    embedding=embedding,
+    persist_directory=persist_directory
+)
+
+print('number of records in chroma collection\n')
+print(vectordb._collection.count())
 
