@@ -1,4 +1,5 @@
 venv
+my_chroma_data
 .env
 *.swp
 *.swo

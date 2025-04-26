@@ -1,20 +1,35 @@
 import os
+import openai
+import sys
+
+from dotenv import load_dotenv, find_dotenv
+_ = load_dotenv(find_dotenv))
+
+openai.api_key = os.environ['OPENAI_API_KEY']
+
+from langchain.document_loaders import PyPDFLoader
+
+
+
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_community.document_loaders import PyPDFLoader
+#from langchain_community.document_loaders import PyPDFLoader
 from langchain_core.documents import Document
 from langchain_community.vectorstores import Chroma
-from dotenv import load_dotenv
+from langchain_ollama import OllamaEmbeddings
 import streamlit as st
 import pypdf
+import mistralai
+from uuid import uuid4
 
-load_dotenv()
+from mistralai import Mistral
+
 
 CHROMA_PATH = "chroma"
 DATA_PATH = "./data/e-mu_eos_4.0_manual.pdf"
 
 
 loader = PyPDFLoader(DATA_PATH)
-docs = loader.load()
+pages = loader.load()
 
 #db = Chroma.from_documents(texts, embeddings)
 
@@ -26,17 +41,10 @@ ask = st.button(
 )
 
 
-#for page in pages: # iterate the document pages
-#    print(page)
-#    text = page.get_text().encode("utf8") # get plain text (is in UTF-8)
-#    print(text) # write text of page
-#    print(bytes((12,))) # write page delimiter (form feed 0x0C)
-
-
 #text split the doc, chunk and embed
 text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=400,
-        chunk_overlap=100,
+        chunk_size=1000,
+        chunk_overlap=50,
         separators=["\n\n","\n",".","?","!"," ",""],
     )
 
@@ -44,13 +52,19 @@ split_doc = text_splitter.split_documents(docs)
 
 st.write(split_doc)
 
-vectorstore = Chroma.from_documents(
-    documents=doc_splits,
+embeddings = OllamaEmbeddings(
+        model="mistral:latest"
+        )
+
+vectorstore = Chroma(
     collection_name="rag-chroma",
-    embedding=embeddings.ollama.OllamaEmbeddings(model='nomic-embed-text'),
+    embedding_function=embeddings,
+    persist_directory="./my_chroma_data"
 )
 
 retriever = vectorstore.as_retriever()
 
-
+uuids = [str(uuid4()) for _ in range(len(split_doc))]
+vectorstore.add_documents(documents=split_doc, ids=uuids)
+print(f"Finished ingesting file: {DATA_PATH}")
 
