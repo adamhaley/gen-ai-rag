@@ -42,5 +42,9 @@ c_splitter = CharacterTextSplitter(
     chunk_overlap=chunk_overlap
 )
 
+pages = r_splitter.split_documents(pages)
+
+print(len(pages))
+
 
 
