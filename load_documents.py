@@ -1,16 +1,17 @@
 import os
-import openai
+#import openai
 import sys
 
 from dotenv import load_dotenv, find_dotenv
 _ = load_dotenv(find_dotenv())
 
-openai.api_key = os.environ['OPENAI_API_KEY']
+#openai.api_key = os.environ['OPENAI_API_KEY']
 
 from langchain_community.document_loaders import PyPDFLoader
 
 #LOAD DOCUMENT
-DATA_PATH = "./data/e-mu_eos_4.0_manual.pdf"
+#DATA_PATH = "./data/e-mu_eos_4.0_manual.pdf"
+DATA_PATH = "./data/Adam-Haley-Resume-2025.pdf"
 
 try: 
     loader = PyPDFLoader(DATA_PATH)
@@ -48,8 +49,6 @@ print(len(pages))
 #CHROMA DB STUFF
 from langchain_community.vectorstores import Chroma
 from langchain_community.embeddings import OllamaEmbeddings
-
-from langchain_openai import OpenAIEmbeddings
 
 embedding = OllamaEmbeddings(model="mistral")
 
