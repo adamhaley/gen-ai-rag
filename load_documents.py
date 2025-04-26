@@ -22,4 +22,4 @@ print(len(pages))
 page = pages[0]
 
 print(page.page_content[:1500])
-
+print(page.metadata)
