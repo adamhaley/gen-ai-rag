@@ -1,13 +1,12 @@
-ollama
 openai
-chromadb
 langchain
+langchain_chroma
+langchain-ollama
 embeddings
 python-dotenv
 sentence-transformers
 langchain_community
 langchain_text_splitters
-langchain_ollama
 python-dotenv
 streamlit
 pypdf

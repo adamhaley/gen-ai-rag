@@ -8,6 +8,7 @@ _ = load_dotenv(find_dotenv())
 #openai.api_key = os.environ['OPENAI_API_KEY']
 
 from langchain_community.document_loaders import PyPDFLoader
+from langchain_community.document_loaders import TextLoader
 
 #LOAD DOCUMENT
 #DATA_PATH = "./data/e-mu_eos_4.0_manual.pdf"
@@ -46,9 +47,9 @@ pages = r_splitter.split_documents(pages)
 
 print(len(pages))
 
-#CHROMA DB STUFF
-from langchain_community.vectorstores import Chroma
-from langchain_community.embeddings import OllamaEmbeddings
+#CHROMA VECTOR STORE
+from langchain_chroma import Chroma
+from langchain_ollama import OllamaEmbeddings
 
 embedding = OllamaEmbeddings(model="mistral")
 
