@@ -9,8 +9,7 @@ from langchain_chroma import Chroma
 from langchain_ollama import OllamaEmbeddings
 
 embedding = OllamaEmbeddings(model="mistral")
-persist_directory = 'my_chroma_data'
-
+#persist_directory = 'my_chroma_data'
 
 
 '''
@@ -20,10 +19,29 @@ vectordb = Chroma(
 )
 '''
 
-print(vectordb._collection.count())
+#micro-rag tests
+texts = [
+    """The Amanita phalloides has a large and imposing epigeous (aboveground) fruiting body (basidiocarp).""",
+    """A mushroom with a large fruiting body is the Amanita phalloides. Some varieties are all-white.""",
+    """A. phalloides, a.k.a Death Cap, is one of the most poisonous of all known mushrooms.""",
+]
 
-question = "How do I save a sample to disc on the emu e5000 ultra?"
-docs = vectordb.max_marginal_relevance_search(question,k=5)
+
+smalldb = Chroma.from_texts(texts, embedding=embedding)
+
+print(smalldb._collection.count())
+question = "Tell me about all-white mushrooms with large fruiting bodies"
+
+print("Q:" + question + "\n")
+
+
+ss_res = smalldb.similarity_search(question, k=2)
+mmr_res = smalldb.max_marginal_relevance_search(question, k=2, fetch_k=3) 
+
+docs = ss_res
+docs = mmr_res
+
+#docs = vectordb.max_marginal_relevance_search(question,k=5)
 
 print(len(docs))
 
