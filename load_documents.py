@@ -12,8 +12,8 @@ from langchain_community.document_loaders import PyPDFLoader
 from langchain_community.document_loaders import TextLoader
 
 #LOAD DOCUMENT
-#DATA_PATH = "./data/e-mu_eos_4.0_manual.pdf"
-DATA_PATH = "./data/Adam-Haley-Resume-2025.pdf"
+DATA_PATH = "./data/e-mu_eos_4.0_manual.pdf"
+#DATA_PATH = "./data/Adam-Haley-Resume-2025.pdf"
 
 try: 
     loader = PyPDFLoader(DATA_PATH)
@@ -61,7 +61,7 @@ embedding = OllamaEmbeddings(model="mistral")
 
 persist_directory = 'my_chroma_data'
 
-shutil.rmtree(persist_directory)
+#shutil.rmtree(persist_directory)
 
 vectordb = Chroma.from_documents(
     documents=pages,
