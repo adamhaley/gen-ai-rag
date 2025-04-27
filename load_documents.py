@@ -46,7 +46,12 @@ c_splitter = CharacterTextSplitter(
 
 pages = r_splitter.split_documents(pages)
 
+print("Num pages:\n")
 print(len(pages))
+
+for page in pages:
+    print(page)
+
 
 #CHROMA VECTOR STORE
 from langchain_chroma import Chroma

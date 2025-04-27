@@ -26,4 +26,3 @@ print(np.dot(embedding1, embedding3))
 print(np.dot(embedding2, embedding3))
 
 
-
