@@ -35,11 +35,11 @@ question = "Tell me about all-white mushrooms with large fruiting bodies"
 print("Q:" + question + "\n")
 
 
-ss_res = smalldb.similarity_search(question, k=2)
-mmr_res = smalldb.max_marginal_relevance_search(question, k=2, fetch_k=3) 
+ss_res = smalldb.similarity_search(question, k=1)
+mmr_res = smalldb.max_marginal_relevance_search(question, k=1, fetch_k=3) 
 
 docs = ss_res
-docs = mmr_res
+#docs = mmr_res
 
 #docs = vectordb.max_marginal_relevance_search(question,k=5)
 
