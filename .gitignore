@@ -1,5 +1,6 @@
 venv
 my_chroma_data
+emu_eos_manual_embeddings
 .env
 *.swp
 *.swo

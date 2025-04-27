@@ -1,6 +1,7 @@
 import os
 #import openai
 import sys
+import shutil
 
 from dotenv import load_dotenv, find_dotenv
 _ = load_dotenv(find_dotenv())
@@ -31,8 +32,8 @@ print(page.metadata)
 #SPLIT THE TEXT
 from langchain.text_splitter import RecursiveCharacterTextSplitter, CharacterTextSplitter
 
-chunk_size =26
-chunk_overlap = 4
+chunk_size = 1000
+chunk_overlap = 200 
 
 r_splitter = RecursiveCharacterTextSplitter(
     chunk_size=chunk_size,
@@ -54,6 +55,8 @@ from langchain_ollama import OllamaEmbeddings
 embedding = OllamaEmbeddings(model="mistral")
 
 persist_directory = 'my_chroma_data'
+
+shutil.rmtree(persist_directory)
 
 vectordb = Chroma.from_documents(
     documents=pages,
