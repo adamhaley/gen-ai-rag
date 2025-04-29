@@ -11,7 +11,7 @@ from langchain_ollama import OllamaEmbeddings
 from langchain_openai import OpenAIEmbeddings
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-
+ 
 
 start_time = time.perf_counter()
 
