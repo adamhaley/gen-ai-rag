@@ -2,6 +2,7 @@ openai
 langchain
 langchain_chroma
 langchain-ollama
+langchain-openai
 embeddings
 python-dotenv
 sentence-transformers
