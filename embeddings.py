@@ -12,12 +12,10 @@ from langchain_openai import OpenAIEmbeddings
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
  
-
 start_time = time.perf_counter()
 
-embedding = OllamaEmbeddings(model="mistral")
+#embedding = OllamaEmbeddings(model="mistral")
 
-'''
 embedding = OpenAIEmbeddings(
     model="text-embedding-3-large",
     # With the `text-embedding-3` class
@@ -25,10 +23,9 @@ embedding = OpenAIEmbeddings(
     # of the embeddings you want returned.
     # dimensions=1024
 )
-'''
 
 #Using numpy dot product to compare vector similarity
-sentence1 = "Friday is my favorite day of the week."
+sentence1 = "Friday is my most favorite day of the week."
 sentence2 = "The sun sets at 6:00pm"
 sentence3 = "Monday is my least favorite day of the week."
 
@@ -45,6 +42,3 @@ print(np.dot(embedding2, embedding3))
 end_time = time.perf_counter()
 execution_time = end_time - start_time
 print(f"Execution time: {execution_time:.4f} seconds")
-
-
-

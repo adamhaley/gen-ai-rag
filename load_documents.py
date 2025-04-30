@@ -2,6 +2,7 @@ import os
 #import openai
 import sys
 import shutil
+import time
 
 from dotenv import load_dotenv, find_dotenv
 _ = load_dotenv(find_dotenv())
@@ -14,6 +15,9 @@ from langchain_community.document_loaders import TextLoader
 #LOAD DOCUMENT
 DATA_PATH = "./data/e-mu_eos_4.0_manual.pdf"
 #DATA_PATH = "./data/Adam-Haley-Resume-2025.pdf"
+
+#start timer
+start_time = time.perf_counter()
 
 try: 
     loader = PyPDFLoader(DATA_PATH)
@@ -71,4 +75,6 @@ vectordb = Chroma.from_documents(
 
 print('number of records in chroma collection\n')
 print(vectordb._collection.count())
-
+end_time = time.perf_counter()
+execution_time = end_time - start_time
+print(f"Execution time: {execution_time:.4f} seconds")
