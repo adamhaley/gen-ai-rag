@@ -1,9 +1,12 @@
 import os
 import sys
-import warnings
 import time
+import warnings
+from langchain_core._api.deprecation import LangChainDeprecationWarning
 
-warnings.filterwarnings("ignore", category=DeprecationWarning)
+warnings.filterwarnings("ignore", category=LangChainDeprecationWarning)
+
+
 
 from dotenv import load_dotenv, find_dotenv
 _ = load_dotenv(find_dotenv())
