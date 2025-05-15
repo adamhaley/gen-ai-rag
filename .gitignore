@@ -3,6 +3,7 @@ chroma
 chroma_data
 my_chroma_data
 emu_eos_manual_embeddings
+data/youtube
 .env
 *.swp
 *.swo
