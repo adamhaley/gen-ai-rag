@@ -4,6 +4,7 @@ chroma_data
 my_chroma_data
 emu_eos_manual_embeddings
 data/youtube
+credentials.toml
 .env
 *.swp
 *.swo
