@@ -18,16 +18,12 @@ start_time = time.perf_counter()
 
 embedding = OpenAIEmbeddings(
     model="text-embedding-3-large",
-    # With the `text-embedding-3` class
-    # of models, you can specify the size
-    # of the embeddings you want returned.
-    # dimensions=1024
 )
 
 #Using numpy dot product to compare vector similarity
-sentence1 = "Friday is my most favorite day of the week."
-sentence2 = "The sun sets at 6:00pm"
-sentence3 = "Monday is my least favorite day of the week."
+sentence1 = "The meeting was moved to Friday afternoon."
+sentence2 = "We rescheduled the team discussion for later this week."
+sentence3 = "I made pasta with mushrooms and garlic last night."
 
 embedding1 = embedding.embed_query(sentence1)
 embedding2 = embedding.embed_query(sentence2)
