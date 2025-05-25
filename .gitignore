@@ -1,6 +1,7 @@
 venv
 chroma
 chroma_data
+chroma.log
 my_chroma_data
 emu_eos_manual_embeddings
 data/youtube
